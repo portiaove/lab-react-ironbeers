@@ -1,6 +1,6 @@
 import React from 'react';
 import BeersService from '../../services/BeersService';
-import Beer from './Beer';
+import Beers from './Beers';
 
 class ListBeers extends React.Component {
   state = {
@@ -11,7 +11,6 @@ class ListBeers extends React.Component {
     BeersService.listBeers().then(
       res => { 
         const birris = res.data.slice(10, 20)
-        // console.log(birris)
         this.setState({data: birris})
       }
     )
@@ -25,7 +24,7 @@ class ListBeers extends React.Component {
     return(
       <div className="ListBeers">
         {this.state.data.map((beer, i) => (
-          <Beer beer={beer} key={i}/>
+          <Beers beer={beer} key={i}/>
         ))}
         
       </div>

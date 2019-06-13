@@ -1,9 +1,13 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: 'https://ih-beer-api.herokuapp.com'
+  baseURL: 'https://ih-beer-api.herokuapp.com/beers'
 })
 
-const listBeers = () => http.get('/beers')
+const listBeers = () => http.get('/')
 
-export default {listBeers}
+const getBeer = (id) => http.get(`/${id}`)
+
+const getRandom = () => http.get('/random')
+
+export default { listBeers, getBeer, getRandom }

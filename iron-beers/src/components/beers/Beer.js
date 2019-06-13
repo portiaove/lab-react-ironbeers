@@ -1,24 +1,28 @@
 import React from 'react';
 
 const Beer = (props) => {
-  console.log(props)
-  const beer = props.beer
-  return (
-    <div className="container">
-    <div className="card flex-row flex-wrap align-items-center">
-        <div className="card-header border-0">
-            <img src={beer.image_url} alt=""/>
-        </div>
-        <div className="card-block px-4 ">
-            <h2>{beer.name}</h2>
-            <h4 className="card-title">{beer.tagline}</h4>
-            <p className="card-text"><strong>{beer.contributed_by}</strong></p>
-            <p className="card-text"><strong>{beer._id}</strong></p>
+  const {image_url, 
+    name, 
+    tagline, 
+    first_brewed, 
+    attenuation_level, 
+    description, 
+    contributed_by} = props.beer
+    
+  return(
+    <div className="card">
+    <img className="card-img-top" src={image_url} alt={name}/>
+    <div className="card-body">
+      <h5 className="card-title">{name}</h5>
+      <h5 className="card-title">{first_brewed}</h5>
+      <p className="card-text"><small className="text-muted">{tagline}</small></p>
+      <p className="card-text">{description}</p>
+      <p className="card-text">{contributed_by}</p>
+      <p className="card-text">{attenuation_level}</p>
 
-        </div>
     </div>
-    </div>
+  </div>
   )
 }
 
-export default Beer
+export default Beer;

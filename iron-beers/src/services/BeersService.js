@@ -10,4 +10,6 @@ const getBeer = (id) => http.get(`/${id}`)
 
 const getRandom = () => http.get('/random')
 
-export default { listBeers, getBeer, getRandom }
+const createBeer = beer => http.post('/new', beer)
+
+export default { listBeers, getBeer, getRandom, createBeer }
